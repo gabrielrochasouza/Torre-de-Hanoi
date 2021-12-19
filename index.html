@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/css/style.css">
+  <title>Torre de Hanoi</title>
+</head>
+<body>
+  <header>
+    <h1>Torre de Hanoi</h1>
+
+    <section id="regras-do-jogo">
+      <p>
+        A torre é formada pelos discos empilhados no bastão chamado de Start. O objetivo do jogo é transportar a torre para o bastão End, usando a intermediária Offset.
+      </p>
+      <p>
+        Escolha a dificuldade e depois clique em start para começar.
+      </p>
+      <ul>
+        <li>
+          Movimentar uma só peça (disco) de cada vez.
+        </li>
+        <li>
+          Uma peça maior não pode ficar acima de uma menor.
+        </li>
+        <li>
+          Não é permitido movimentar uma peça que esteja abaixo de outra.
+        </li>
+      </ul>
+    </section>
+
+    <section id="dificuldade">
+      <h2>Selecione a dificuldade:</h2>
+      <ul id="dificuldades">
+        <li class="dificuldade" id="easy">Fácil</li>
+        <li class="dificuldade" id="normal">Médio</li>
+        <li class="dificuldade" id="hard">Difícil</li>
+      </ul>
+    </section>
+
+    <a href="#contador" id="start">
+      <figure>
+        <figcaption>Start</figcaption>
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </figure>
+    </a>
+  </header>
+  
+  <main id="main" class="hidden">
+    <a id="contador">
+      <h2>Contador de Movimentos: <span>0</span></h2>
+    </a>
+
+    <section id="area-do-jogo">
+      
+      <div id="disco-selecionado"></div>
+
+      <section class="coluna-wrapper">
+        <!--
+        <div class="colunas" id="coluna-start">
+          <div class="discos" id="disco-1">1</div>
+          <div class="discos" id="disco-2">2</div>
+          <div class="discos" id="disco-3">3</div>
+          <div class="discos" id="disco-4">4</div>
+          <div class="discos" id="disco-5">5</div>
+        </div>
+        <p>Start</p>
+      -->
+      </section>
+
+      <section class="coluna-wrapper">
+        <!--
+        <div class="colunas" id="coluna-offset"></div>
+        <p>Offset</p>
+        -->
+      </section>
+
+      <section class="coluna-wrapper">
+        <!--
+        <div class="colunas" id="coluna-end"></div>
+        <p>End</p>
+        -->
+      </section>
+    </section>
+    <footer>
+      <button id="reset">Reset</button>
+      <button id="voltarInicio">Voltar ao início</button>
+    </footer>
+  </main>
+
+
+
+  <div class="popUpVitoria hidden">
+    <div class="box">
+        Parabéns você venceu!!! Seu número de jogadas foi <span id="numJogadas"></span>. (Espere 3 segundos)
+    </div>
+  </div>
+  
+  <script src="src/js/script.js"></script>
+</body>
+</html>

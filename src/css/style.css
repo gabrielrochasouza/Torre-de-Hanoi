@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --cinza-escuro: #252323;
+  --azul-escuro: #1B263B;
+  --vermelho-escuro: #462025;
+  --amarelo-claro: #E7AF36;
+  --azul-claro: #70798C;
+  --bege: #A39C8F;
+  --branco: #F6F6F6;
+}
+
+body {
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+/* HEADER */
+header {
+  padding: 50px 0 10px;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  min-height: 740px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header h1 {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+header h2 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+header #regras-do-jogo, header #dificuldade {
+  max-width: 500px;
+}
+
+#regras-do-jogo {
+  text-align: justify;
+  line-height: 24px;
+}
+
+#regras-do-jogo p {
+  margin: 10px 0;
+}
+
+#regras-do-jogo ul {
+  padding: 8px 16px;
+}
+
+#regras-do-jogo ul::before {
+  content: 'As regras são:';
+}
+
+#dificuldade {
+  margin: 10px 0 10px;
+  width: 100%;
+}
+
+#dificuldade ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 90%;
+  margin: 36px auto;
+}
+
+#dificuldade li {
+  height: 80px;
+  width: 30%;
+  padding-bottom: 6px;
+  margin-right: 8px;
+  border: 1px solid var(--amarelo-claro);
+  color: var(--amarelo-claro);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-weight: bold;
+}
+
+#dificuldade .dificuldade-selecionada, #dificuldade li:hover {
+  transition: all 0.3s ease;
+  background-color: var(--amarelo-claro);
+  color: var(--azul-escuro);
+  border-color: black;
+  cursor: pointer;
+}
+
+#start {
+
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+#start:hover {
+  padding-bottom: 16px;
+  transition: all 0.2s ease;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+/* MAIN */
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 800px;
+  margin: 0px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #1b263b;
+  z-index: 5;
+  width: 100%;
+  padding: 20px 0 0;
+  height: 100vh;
+  animation: fadeSlide 1s;
+}
+
+@keyframes fadeSlide{
+  from{
+
+    top: -100vh;
+  }
+  to{
+    top: 0;
+    
+  }
+}
+
+main h2 {
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 25px 0 40px;
+  border-bottom: 1px solid var(--amarelo-claro);
+}
+
+main #area-do-jogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main #disco-selecionado {
+  width: 150px;
+  min-height: 50px;
+  margin-top: 10px;
+  background-color: #1b263b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .coluna-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 170px;
+  margin: 15px 0;
+}
+
+main .colunas {
+  height: 150px;
+  margin: 10px 0;
+  width: 15px;
+  background:linear-gradient(90deg,black,rgb(61, 61, 61));
+  border: 1px solid black;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  transition: 500ms all;
+}
+main .colunas:hover {
+  background:linear-gradient(90deg,rgb(34, 34, 34),rgb(0, 0, 0));
+  transition: 1000ms all;
+}
+main .colunas:hover .discos:first-child {
+  margin-bottom: 20px;
+  transition: 1000ms all;
+}
+main .colunas .discos.topo:first-child {
+  animation:deslizarDiscoAbaixo 1s;
+}
+main .colunas .discos.subir:first-child {
+  animation:deslizarDiscoCima 0.5s;
+}
+@keyframes deslizarDiscoAbaixo{
+  from{
+    margin-bottom:140px ;
+  }
+  to{
+    margin-bottom: 1px;
+  }
+}
+@keyframes deslizarDiscoCima{
+  from{
+    margin-bottom:1px ;
+  }
+  to{
+    margin-bottom:140px ;
+  }
+}
+main .discos {
+  height: 20px;
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+main #disco-1 {
+  width: 30px;
+  background-color: purple;
+  background: linear-gradient(90deg,purple,rgb(168, 0, 168),purple);
+}
+
+main #disco-2 {
+  width: 60px;
+  background-color: green;
+  background: linear-gradient(90deg,green,rgb(0, 155, 0),green);
+}
+
+main #disco-3 {
+  width: 90px;
+  background-color: yellow;
+  background:linear-gradient(90deg,yellow,rgb(177, 177, 0),yellow) ;
+}
+
+main #disco-4 {
+  width: 120px;
+  background-color: blue;
+  background: linear-gradient(90deg,blue,rgb(0, 0, 158),blue);
+}
+
+main #disco-5 {
+  width: 150px;
+  background-color: red;
+  background: linear-gradient(90deg,red,rgb(168, 0, 0) ,red);
+}
+
+footer {
+  margin: 40px 0 25px;
+  display: flex;
+  justify-content: center;
+}
+
+footer #reset,button{
+  height: 58px;
+  width: 138px;
+  padding: 15px 10px;
+  margin: 30px 10px 0;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--azul-escuro);
+  border: 1px solid var(--amarelo-claro);
+  color: var(--branco);
+  font-weight: bold;
+}
+.popUpVitoria{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.548);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+.popUpVitoria .box{
+  padding: 30px;
+  background-color: blanchedalmond;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  max-width: 290px;
+  border: 2px solid black;
+  box-shadow: var(--amarelo-claro) 0px 0px 20px 8px;
+  animation: fadeDown 2s;
+  
+}
+@keyframes fadeDown{
+  from{
+    opacity: 0;
+    margin-bottom: 100px;
+  }
+  to{
+    opacity: 1;
+    margin-bottom: 0;
+  }
+}
+.hidden{
+  display: none;
+}
+@media screen and (min-width: 560px) {
+  main {
+    margin: 0px auto;
+    min-height: 700px;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  main #area-do-jogo {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  main #disco-selecionado {
+    width: 180px;
+    margin: 10px 35% 0px;
+  }
+
+  main .coluna-wrapper {
+    transform: scale(1.2);
+  }
+
+  footer {
+    height: 30vh;
+    margin: 30px auto;
+  }
+
+  footer #reset:hover, #dificuldade li:hover,button:hover {
+    transition: all 0.3s ease;
+    background-color: var(--amarelo-claro);
+    color: var(--azul-escuro);
+    border-color: black;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main #area-do-jogo {
+    width: 1000px;
+  }
+   main #disco-selecionado {
+    margin: 10px 410px 20px;
+   }
+}
