@@ -33,7 +33,7 @@ header {
   width: 90%;
   margin: auto;
   text-align: center;
-  min-height: 740px;
+  min-height: 840px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,11 +111,13 @@ header #regras-do-jogo, header #dificuldade {
   font-weight: bold;
   transition: all 0.2s ease;
 }
-
+.start--zoomed{
+  transform: scale(1.1);
+}
 #start:hover {
   padding-bottom: 16px;
   transition: all 0.2s ease;
-  transform: scale(1.1);
+  transform: scale(1.3);
   cursor: pointer;
 }
 /* MAIN */
@@ -228,9 +230,9 @@ main .colunas .discos.subir:first-child {
 main .discos {
   height: 20px;
   width: 150px;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 3px;
-  margin-top: 2px;
+  margin-top: 0px;
 }
 
 main #disco-1 {

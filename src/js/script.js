@@ -1,5 +1,6 @@
 /* Criando os elementos com DOM*/ 
 const section=document.getElementsByClassName('coluna-wrapper')
+const startButton=document.getElementById('start')
 
 function criarColunas(){
     for(let i=0;i<3;i++){
@@ -76,9 +77,25 @@ function removeClass(){
 /**----------------------------- */
 /**Escolher dificuldade */
 let DISCOS_CRIADOS=0
+let zoomed=false
 const DIFICULDADES=document.getElementById('dificuldades')
+
 DIFICULDADES.addEventListener('click',(e)=>{
+  if(e.target.tagName=='LI'){
+
+  
   reset()
+  if(startButton.classList[0]=='hidden'){
+    setInterval(() => {
+      if(zoomed){
+        startButton.classList.remove('start--zoomed')
+      }else{
+        startButton.classList.add('start--zoomed')
+      }
+      zoomed=!zoomed
+    }, 200);
+  }
+  startButton.classList.remove('hidden')
   const dificuldadesLista=document.getElementsByClassName('dificuldade')
   for(let i=0; i<3;i++){
     dificuldadesLista[i].classList.remove('dificuldade-selecionada')
@@ -98,6 +115,8 @@ DIFICULDADES.addEventListener('click',(e)=>{
     criarDiscos(5)
     DISCOS_CRIADOS=5
   }
+
+ }
 })
 
 
@@ -187,10 +206,11 @@ COLUNAS.forEach( coluna => coluna.addEventListener('click', () => {
 }))
 
 const main=document.getElementById('main')
-const startButton=document.getElementById('start')
+
 const voltarInicio=document.getElementById('voltarInicio')
 
 startButton.addEventListener('click',()=>{
+  reset()
   if(DISCOS_CRIADOS!==0){
     main.classList.remove('hidden')
   }
